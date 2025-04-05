@@ -22,7 +22,7 @@ def filter_lines_by_uuids(input_file, output_file, uuid_list):
 
 if __name__ == "__main__":
     # 输入 JSON 文件路径
-    input_file = "/Users/xinguohua/Code/pythonProject1/ta1-trace-e3-official-1.bin.3.json"
+    input_file = "ta1-trace-e3-official-1.bin.3.json"
 
     # 输出 JSON 文件路径
     output_file = "filtered_by_uuid.json"
