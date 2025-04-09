@@ -29,8 +29,8 @@ def run_java_cmd(file_path, jar_path, schema_path, log4j_options):
         "-roll", "5000000",
         "-wj",
         "-d", "10000000",
-        # "-startTime", start_time,
-        # "-endTime", end_time,
+        "-startTime", start_time,
+        "-endTime", end_time,
         # "-uuid", uuid_filter，
         "-time"
     ]
@@ -54,7 +54,7 @@ log4j_options = [
 #############################可调参数###########################################################
 
 # 模式选择：'unzip' 为解压模式，'direct' 为直接处理 bin 文件模式
-mode = 'direct'  # 可选 'unzip' 或 'direct'
+mode = 'unzip'  # 可选 'unzip' 或 'direct'
 # 定义开始和结束时间（格式必须为 yyyy-MM-dd HH:mm:ss）
 start_time = "2018-04-10 13:00:00"
 end_time = "2018-04-10 15:00:00"
