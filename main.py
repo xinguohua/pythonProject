@@ -48,16 +48,16 @@ schema_path = "jar/TCCDMDatum.avsc"
 # # 定义 Log4j 配置和调试选项
 log4j_options = [
     "-Dlog4j.debug=true",
-    "-Dlog4j.configuration= file:/Users/xinguohua/Code/ta3-java-consumer/tc-bbn-kafka/nochecker.log4j.properties"
+    "-Dlog4j.configuration= file:jar/nochecker.log4j.properties"
 ]
 
 #############################可调参数###########################################################
 
 # 模式选择：'unzip' 为解压模式，'direct' 为直接处理 bin 文件模式
-mode = 'unzip'  # 可选 'unzip' 或 'direct'
+mode = 'direct'  # 可选 'unzip' 或 'direct'
 # 定义开始和结束时间（格式必须为 yyyy-MM-dd HH:mm:ss）
-# start_time = "2018-04-13 12:40:00"
-# end_time = "2018-04-13 13:00:00"
+start_time = "2018-04-10 13:00:00"
+end_time = "2018-04-10 15:00:00"
 # 定义要筛选的 UUID（多个用逗号分隔字符串）
 # uuid_filter = "CAE9180E-98E9-A5FB-A375-E99EAECC8B7C"
 #############################################################################################
@@ -65,7 +65,7 @@ mode = 'unzip'  # 可选 'unzip' 或 'direct'
 if mode == 'unzip':
     # 定义 .tar.gz 文件的路径
     # tar_gz_file = "/Users/xinguohua/Code/pythonProject1/data/ta1-trace-e3-official.bin.tar.gz"
-    tar_gz_file = "data/ta1-trace-e3-official-1.bin.tar.gz"
+    tar_gz_file = "data/ta1-theia-e3-official-6r.bin.tar.gz"
 
     base_name = os.path.splitext(os.path.basename(tar_gz_file))[0]
     output_dir = f"data/{base_name}_unzipped"  # 解压后的文件存放目录
@@ -113,12 +113,12 @@ elif mode == 'direct':
     #     # 可以继续添加更多文件路径
     # ]
 
-    base_path = "data/ta1-trace-e3-official-1.bin.tar_unzipped"
-    base_name = "ta1-trace-e3-official-1.bin"
+    base_path = "data/ta1-theia-e3-official-6r.bin.tar_unzipped"
+    base_name = "ta1-theia-e3-official-6r.bin"
     # start_index = 2
     # end_index = 4
-    start_index = 4
-    end_index = 4
+    start_index = 9
+    end_index = 9
 
     input_files = generate_input_files(base_path, base_name, start_index, end_index)
 
