@@ -6,8 +6,11 @@ from concurrent.futures import ThreadPoolExecutor
 def generate_input_files(base_path, base_name, start_idx, end_idx):
     input_files = []
     for i in range(start_idx, end_idx + 1):
-        file_path = f"{base_path}/{base_name}.{i}"
-        input_files.append(file_path)
+        if i== 0:
+            input_files.append(f"{base_path}/{base_name}")
+        else:
+            file_path = f"{base_path}/{base_name}.{i}"
+            input_files.append(file_path)
     return input_files
 
 def run_java_cmd(file_path, jar_path, schema_path, log4j_options):
@@ -29,8 +32,8 @@ def run_java_cmd(file_path, jar_path, schema_path, log4j_options):
         "-roll", "5000000",
         "-wj",
         "-d", "10000000",
-        "-startTime", start_time,
-        "-endTime", end_time,
+        # "-startTime", start_time,
+        # "-endTime", end_time,
         # "-uuid", uuid_filter，
         "-time"
     ]
@@ -54,10 +57,10 @@ log4j_options = [
 #############################可调参数###########################################################
 
 # 模式选择：'unzip' 为解压模式，'direct' 为直接处理 bin 文件模式
-mode = 'unzip'  # 可选 'unzip' 或 'direct'
+mode = 'direct'  # 可选 'unzip' 或 'direct'
 # 定义开始和结束时间（格式必须为 yyyy-MM-dd HH:mm:ss）
-start_time = "2018-04-10 13:00:00"
-end_time = "2018-04-10 15:00:00"
+# start_time = "2018-04-10 12:20:00"
+# end_time = "2018-04-10 14:00:00"
 # 定义要筛选的 UUID（多个用逗号分隔字符串）
 # uuid_filter = "CAE9180E-98E9-A5FB-A375-E99EAECC8B7C"
 #############################################################################################
@@ -117,8 +120,8 @@ elif mode == 'direct':
     base_name = "ta1-theia-e3-official-6r.bin"
     # start_index = 2
     # end_index = 4
-    start_index = 9
-    end_index = 9
+    start_index = 2
+    end_index = 2
 
     input_files = generate_input_files(base_path, base_name, start_index, end_index)
 
