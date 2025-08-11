@@ -52,8 +52,8 @@ log4j_options = [
 # 模式选择：'unzip' 为解压模式，'direct' 为直接处理 bin 文件模式
 mode = 'direct'  # 可选 'unzip' 或 'direct'
 # 定义开始和结束时间（格式必须为 yyyy-MM-dd HH:mm:ss）
-start_time = "2019-05-14 16:00:00"
-end_time = "2019-05-14 17:00:00"
+start_time = "2019-05-15 14:30:00"
+end_time = "2019-05-15 15:30:00"
 # 定义要筛选的 UUID（多个用逗号分隔字符串）
 # uuid_filter = "CAE9180E-98E9-A5FB-A375-E99EAECC8B7C"
 #############################################################################################
@@ -114,9 +114,7 @@ elif mode == 'direct':
 
     base_path = "/Volumes/Elements/data-E5/theia/bin/"
     bin_list = [
-        'ta1-theia-1-e5-official-2.bin.25',
-        'ta1-theia-2-e5-official-2.bin.27',
-        'ta1-theia-3-e5-official-2.bin.21'
+        'ta1-theia-3-e5-official-2.bin.29'
     ]
 
     full_paths = [os.path.join(base_path, name) for name in bin_list]

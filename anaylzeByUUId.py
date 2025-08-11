@@ -25,14 +25,14 @@ def filter_lines_by_uuids(input_file, output_file, uuid_list):
 if __name__ == "__main__":
     # 输入 JSON 文件路径
 
-    input_files = ['ta1-theia-1-e5-official-2.bin.26.json',
-                   'ta1-theia-2-e5-official-2.bin.28.json',
-                   'ta1-theia-3-e5-official-2.bin.22.json']
+    input_files = ['ta1-theia-1-e5-official-2.bin.30.json',
+                   'ta1-theia-2-e5-official-2.bin.33.json',
+                   'ta1-theia-3-e5-official-2.bin.24.json']
     # uuid_list = [
     #     "barephone-instr.apk", "189.141.204.211", "153.4.41.7", "208.203.20.42"
     # ]
     uuid_list = [
-        "128.55.12.110"
+        "3965DC4A-90B9-56D6-914B-470C92B5EDDB"
     ]
     max_workers = min(len(input_files), max(4, (os.cpu_count() or 1) * 2))
 
