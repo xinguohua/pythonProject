@@ -5,3 +5,5 @@
 *.json
 
 *.bin.*
+
+paint/

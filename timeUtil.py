@@ -25,9 +25,9 @@ def convert_nanoseconds_to_localtime(nanoseconds):
 
 
 # Example timestamp in nanoseconds (1523637781405000000)
-nanoseconds = 1523637781405000000
-nanoseconds = 1523637781517000000
-nanoseconds = 1523637968165000000
+# nanoseconds = 1523637781405000000
+# nanoseconds = 1523637781517000000
+nanoseconds = 1557864000000000000
 
 
 # Convert to LocalDateTime in 'America/New_York'

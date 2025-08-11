@@ -1,4 +1,6 @@
 import os
+from concurrent.futures import ThreadPoolExecutor
+
 
 def filter_lines_by_uuids(input_file, output_file, uuid_list):
     """
@@ -22,26 +24,29 @@ def filter_lines_by_uuids(input_file, output_file, uuid_list):
 
 if __name__ == "__main__":
     # 输入 JSON 文件路径
-    input_file = "ta1-theia-e3-official-6r.bin.json"
 
-    # 输出 JSON 文件路径
-    output_file = "filtered_by_uuid.json"
-
-    # UUID 列表（可以改成你想查找的 UUID）
+    input_files = ['ta1-theia-1-e5-official-2.bin.26.json',
+                   'ta1-theia-2-e5-official-2.bin.28.json',
+                   'ta1-theia-3-e5-official-2.bin.22.json']
+    # uuid_list = [
+    #     "barephone-instr.apk", "189.141.204.211", "153.4.41.7", "208.203.20.42"
+    # ]
     uuid_list = [
-       # "BA14551F-0000-0000-0000-000000000020",
-       #  "80370C6E-1795-FFFF-FFFF-000000000040",
-       #  "0015CD1F-0000-0000-0000-000000000020"
-       #  "BA14551F-0000-0000-0000-000000000020"
-       #  "208.75.117.2"
-       #  "208.75.117.3"
-       #  "80370C6E-1795-D04B-7503-500000000040"
-       #  "80370C6E-1895-D04B-7503-500000000040"
-       #  "80370C6E-1995-D04B-7503-500000000040"
-       #  "80370C6E-6395-D04B-7503-500000000040"
-       #  "80370C6E-6495-D04B-7503-500000000040"
-        "80370C6E-6595-D04B-7503-500000000040"
+        "128.55.12.110"
     ]
+    max_workers = min(len(input_files), max(4, (os.cpu_count() or 1) * 2))
 
-    # 执行过滤
-    filter_lines_by_uuids(input_file, output_file, uuid_list)
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = []
+        for input_file in input_files:
+            output_file = input_file + "filtered_by_uuid.json"
+            futures.append(
+                executor.submit(filter_lines_by_uuids, input_file, output_file, uuid_list)
+            )
+
+        # 等待所有任务完成并把异常抛出来
+        for f in futures:
+            try:
+                f.result()
+            except Exception as e:
+                print(f"Error processing file: {e}")
