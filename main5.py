@@ -52,17 +52,17 @@ log4j_options = [
 # 模式选择：'unzip' 为解压模式，'direct' 为直接处理 bin 文件模式
 mode = 'direct'  # 可选 'unzip' 或 'direct'
 # 定义开始和结束时间（格式必须为 yyyy-MM-dd HH:mm:ss）
-start_time = "2019-05-15 14:30:00"
-end_time = "2019-05-15 15:30:00"
+start_time = "2019-05-17 10:10:00"
+end_time = "2019-05-17 11:35:00"
 # 定义要筛选的 UUID（多个用逗号分隔字符串）
 # uuid_filter = "CAE9180E-98E9-A5FB-A375-E99EAECC8B7C"
 #############################################################################################
 
 if mode == 'unzip':
     # 定义 .tar.gz 文件的路径
-    gz_dirs = "/Volumes/Elements/data-E5/theia/"
+    gz_dirs = "/Volumes/Elements/data-E5/cadets/"
     # 解压目录
-    output_dir = f"/Volumes/Elements/data-E5/theia/bin/"  # 解压后的文件存放目录
+    output_dir = f"/Volumes/Elements/data-E5/cadets/bin/"  # 解压后的文件存放目录
     print(f"Extracted files to {output_dir}")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)  # 如果解压目录不存在，创建它
@@ -112,9 +112,15 @@ if mode == 'unzip':
 
 elif mode == 'direct':
 
-    base_path = "/Volumes/Elements/data-E5/theia/bin/"
+    base_path = "/Volumes/Elements/data-E5/cadets/bin/"
     bin_list = [
-        'ta1-theia-3-e5-official-2.bin.29'
+        # "ta1-cadets-1-e5-official-2.bin.113",
+        # "ta1-cadets-1-e5-official-2.bin.114",
+        "ta1-cadets-1-e5-official-2.bin.115",
+        # "ta1-cadets-1-e5-official-2.bin.116",
+        # "ta1-cadets-1-e5-official-2.bin.117",
+        # "ta1-cadets-1-e5-official-2.bin.118",
+        # "ta1-cadets-1-e5-official-2.bin.119",
     ]
 
     full_paths = [os.path.join(base_path, name) for name in bin_list]

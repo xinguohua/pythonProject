@@ -25,14 +25,35 @@ def filter_lines_by_uuids(input_file, output_file, uuid_list):
 if __name__ == "__main__":
     # 输入 JSON 文件路径
 
-    input_files = ['ta1-theia-1-e5-official-2.bin.30.json',
-                   'ta1-theia-2-e5-official-2.bin.33.json',
-                   'ta1-theia-3-e5-official-2.bin.24.json']
+    input_files = [
+        "ta1-cadets-1-e5-official-2.bin.116.json.1",
+        "ta1-cadets-1-e5-official-2.bin.116.json",
+        "ta1-cadets-1-e5-official-2.bin.117.json.1",
+        "ta1-cadets-1-e5-official-2.bin.117.json",
+        "ta1-cadets-1-e5-official-2.bin.118.json.1",
+        "ta1-cadets-1-e5-official-2.bin.118.json",
+                   ]
     # uuid_list = [
     #     "barephone-instr.apk", "189.141.204.211", "153.4.41.7", "208.203.20.42"
     # ]
     uuid_list = [
-        "3965DC4A-90B9-56D6-914B-470C92B5EDDB"
+            # "98.23.182.25"
+            # "7616CEF5-78AE-11E9-A28B-D4AE52C1DBD3"
+            # "1E2E3C6D-77E5-11E9-A28B-D4AE52C1DBD3"
+            #"26E2310C-E0FA-5A46-825B-237BA4DFE4BA"
+            # "7616A7B7-78AE-11E9-A28B-D4AE52C1DBD3"
+            # "98DB63EF-78AF-11E9-B41B-D4AE52C1DBD3"
+            # "B7977DD7-78B2-11E9-A28B-D4AE52C1DBD3"
+            # "F6A4219C-415F-523A-9C36-C87EC385FD07"
+            # "26E2310C-E0FA-5A46-825B-237BA4DFE4BA"
+            # "7616A7B7-78AE-11E9-A28B-D4AE52C1DBD3"
+            # "1553A05F-DAD0-5BAE-99BC-0129C60716D2"
+            # "2C491B63-03B2-5BB9-9EC7-1E37622FFFE81",
+             # "C0ED5476-D19B-5FF0-93A9-D3E9CA2A4020",
+             # "1553A05F-DAD0-5BAE-99BC-0129C60716D2",
+            # "98A2F9DC-78AF-11E9-B41B-D4AE52C1DBD3"
+            "128.55.12.167"
+
     ]
     max_workers = min(len(input_files), max(4, (os.cpu_count() or 1) * 2))
 
